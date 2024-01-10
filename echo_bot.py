@@ -1,5 +1,6 @@
 import os
 import sys
+import random
 
 from flask import Flask, request, abort
 
@@ -39,17 +40,23 @@ def callback():
 
     return "OK"
 
+
 def generate_response(from_user, text):
     res = []
-    res.append(TextMessage(text=f"{from_user}さん！"))
+    res.append(TextMessage(text=f"{from_user}ちゃん！"))
     if "完璧" in text:
         res.append(TextMessage(text="じゃーん！！"))
     elif "ドアへ" in text:
         res.append(TextMessage(text="ドアへ～♡"))
     elif "名古屋" in text:
         res.append(TextMessage(text="ネッコヤ♡"))
+    elif "何時" in text:
+        res.append(TextMessage(text="10時10分！それはホシひょんのやつだよ！"))
     else:
-        res.append(TextMessage(text=f"「{text}」って何？"))
+        msg_templates = ["うんうん", "そうなんだ!", "へー", "ふーん", "なるほど", "よしよし", "ホランへ", "へー"]
+        msg_num = len(msg_templates) # メッセージの数
+        idx = random.randrange(msg_num) # 0からmsg_num-1までの乱数を生成
+        res.append(TextMessage(text=msg_templates[idx]))
     return res
 
 @handler.add(MessageEvent, message=TextMessageContent)
