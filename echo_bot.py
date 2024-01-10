@@ -51,9 +51,9 @@ def generate_response(from_user, text):
     elif "名古屋" in text:
         res.append(TextMessage(text="ネッコヤ♡"))
     elif "何時" in text:
-        res.append(TextMessage(text="10時10分！それはホシひょんのやつだよ！"))
+        res.append(TextMessage(text="10時10分！それはホシひょんのやつだよ🐯"))
     else:
-        msg_templates = ["うんうん", "そうなんだ!", "へー", "ふーん", "なるほど", "よしよし", "ホランへ", "へー"]
+        msg_templates = ["うんうん！", "そうなんだ!", "へ～", "ふーん", "なるほど！！", "よしよし", "ホランへ♡", "サルーテ！"]
         msg_num = len(msg_templates) # メッセージの数
         idx = random.randrange(msg_num) # 0からmsg_num-1までの乱数を生成
         res.append(TextMessage(text=msg_templates[idx]))
