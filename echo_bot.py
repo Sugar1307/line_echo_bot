@@ -44,6 +44,8 @@ def generate_response(from_user, text):
     res.append(f"{from_user}さん！")
     if "完璧" in text:
         res.append("じゃーん！")
+    elif "ドアへ" in text:
+        res.append("ドアへ～♡")
     else:
         res.append(f"「{text}」って何？")
     return res
