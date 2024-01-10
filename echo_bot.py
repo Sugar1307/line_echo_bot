@@ -41,13 +41,15 @@ def callback():
 
 def generate_response(from_user, text):
     res = []
-    res.append(f"{from_user}さん！")
+    res.append(TextMessage(text="{from_user}さん！"))
     if "完璧" in text:
-        res.append("じゃーん！")
+        res.append(TextMessage(text="じゃーん！"))
     elif "ドアへ" in text:
-        res.append("ドアへ～♡")
+        res.append(TextMessage(text="ドアへ～♡"))
+    elif "名古屋" in text:
+        res.append(TextMessage(text="ネッコヤ♡"))
     else:
-        res.append(f"「{text}」って何？")
+        res.append(TextMessage(text=f"「{text}」って何？"))
     return res
 
 @handler.add(MessageEvent, message=TextMessageContent)
