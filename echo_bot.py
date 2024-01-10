@@ -2,6 +2,7 @@ import os
 import sys
 import random
 
+
 from flask import Flask, request, abort
 
 from linebot.v3 import WebhookHandler
@@ -49,9 +50,14 @@ def generate_response(from_user, text):
     elif "ドアへ" in text:
         res.append(TextMessage(text="ドアへ～♡"))
     elif "名古屋" in text:
-        res.append(TextMessage(text="ネッコヤ♡"))
+        res.append(TextMessage(text="名古屋ネッコヤ♡"))
     elif "何時" in text:
-        res.append(TextMessage(text="10時10分！それはホシひょんのやつだよ🐯"))
+        res.append(TextMessage(text="10時10分～！それはホシひょんのやつだよ🐯"))
+    elif "自己紹介" in text:
+        msg_template1 = ["Seventeenのメインボーカル、ドギョムです🎤", "Seventeenの手羽先、ドギョムです🐔", "CARATのひまわり、ドギョムです🌻"]
+        msg_num = len(msg_template1) # メッセージの数
+        idx = random.randrange(msg_num)
+        res.append(TextMessage(text=msg_template1[idx]))
     else:
         msg_templates = ["うんうん！", "そうなんだ!", "へ～", "ふーん", "なるほど！！", "よしよし", "ホランへ♡", "サルーテ！"]
         msg_num = len(msg_templates) # メッセージの数
