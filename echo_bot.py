@@ -43,7 +43,7 @@ def generate_response(from_user, text):
     res = []
     res.append(TextMessage(text="{from_user}さん！"))
     if "完璧" in text:
-        res.append(TextMessage(text="じゃーん！"))
+        res.append(TextMessage(text="じゃーん！！"))
     elif "ドアへ" in text:
         res.append(TextMessage(text="ドアへ～♡"))
     elif "名古屋" in text:
