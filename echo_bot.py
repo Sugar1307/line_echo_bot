@@ -41,7 +41,7 @@ def callback():
 
 def generate_response(from_user, text):
     res = []
-    res.append(TextMessage(text="{from_user}さん！"))
+    res.append(TextMessage(text=f"{from_user}さん！"))
     if "完璧" in text:
         res.append(TextMessage(text="じゃーん！！"))
     elif "ドアへ" in text:
